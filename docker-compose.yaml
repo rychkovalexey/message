@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: main
+      POSTGRES_PASSWORD: main
+      POSTGRES_DB: message
+    ports:
+        - "5442:5432"
+#    volumes:
+#      - db-data:/var/lib/postgresql/data
+  adminer:
+    image: adminer
+    restart: on-failure
+    ports:
+      - '8080:8080'
+#  nginx:
+#    image: nginx:1.19.0-alpine
+#    restart: on-failure
+#    volumes:
+#      - './xampp/htdocs/broker/public/:/usr/src/app'
+#    ports:
+#      - '80:80'
+
+#volumes:
+#  db-data:
