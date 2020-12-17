@@ -9,7 +9,20 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Front page</h1>
+    <ul class="" aria-labelledby="navbarDropdown">
+        <li><a class="" href="{{ path('front') }}">Main</a></li>
+        <li><a class="" href="{{ path('message_new') }}">Add message</a></li>
+        <li><a class="" href="{{ path('message_index') }}">Message report</a></li>
+        {% if is_granted('ROLE_USER') %}
+            <li><a class=""  href="{{ url('app_logout') }}">Logout</a></li>
+        {% else %}
+            {% if countUsers()>0  %}
+                <li><a class=""  href="{{ url('app_login') }}">Login</a></li>
+            {% else %}
+                <li><a class=""  href="{{ url('user_new') }}">Register</a></li>
+            {% endif %}
+        {% endif %}
+    </ul>
 
 </div>
 {% endblock %}
