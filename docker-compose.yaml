@@ -15,13 +15,13 @@ services:
     restart: on-failure
     ports:
       - '8080:8080'
-#  nginx:
-#    image: nginx:1.19.0-alpine
-#    restart: on-failure
-#    volumes:
-#      - './xampp/htdocs/broker/public/:/usr/src/app'
-#    ports:
-#      - '80:80'
+  nginx:
+    image: nginx:1.19.0-alpine
+    restart: on-failure
+    volumes:
+      - './public/:/usr/src/app'
+    ports:
+      - '88:80'
 
 #volumes:
 #  db-data:
